@@ -2,9 +2,8 @@ package Stepdefinations;
 import org.openqa.selenium.WebDriver;
 
 import java.time.Duration;
-
+import org.testng.Assert;
 import org.openqa.selenium.By;
-import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 
 import io.cucumber.java.en.Given;
@@ -22,6 +21,7 @@ public class loginStep {
 public void user_is_on_login_page() {
 
 	driver = new ChromeDriver();
+	driver.manage().window().maximize();
 	driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(30));
 	driver.get("https://www.saucedemo.com/v1/");
 
@@ -45,14 +45,17 @@ public void click_on_login_page() {
 
 @Then("User is navigated to home page")
 public void user_is_navigated_to_home_page() {
-    // Write code here that turns the phrase above into concrete actions
-    throw new io.cucumber.java.PendingException();
+
+	Assert.assertTrue((driver.findElement(By.xpath("//div[@class=\"app_logo\"]")).isDisplayed()), "User is navigated to home page");
+
+	
 }
 
 @And("Close page")
 public void close_page() {
-    // Write code here that turns the phrase above into concrete actions
-    throw new io.cucumber.java.PendingException();
+	
+	driver.quit();
+	
 }
 
 
