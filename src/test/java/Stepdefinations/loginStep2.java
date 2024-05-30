@@ -9,41 +9,62 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
+import pageObject.login;
 import io.cucumber.java.en.And;
 
 
 
-public class loginStep {
-/*
-	static WebDriver driver;
+public class loginStep2 {
+
+	WebDriver driver;
+	login login;
+	
 	
 @Given("User is on Login page")
 public void user_is_on_login_page() {
 
-//	driver = new ChromeDriver();
-//	driver.manage().window().maximize();
-//	driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(30));
-//	driver.get("https://www.saucedemo.com/v1/");
+	driver = new ChromeDriver();
+	driver.manage().window().maximize();
+	driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(30));
+	driver.get("https://www.saucedemo.com/v1/");
 
 }
 
 @When("User enters valid username and password")
 public void user_enters_valid_username_and_password() {
 
-//	driver.findElement(By.id("user-name")).sendKeys("standard_user");
-//	driver.findElement(By.id("password")).sendKeys("secret_sauce");
+	driver.findElement(By.id("user-name")).sendKeys("standard_user");
+	driver.findElement(By.id("password")).sendKeys("secret_sauce");}
 	
-}
+
 @When("User enters valid <{string}> and <{string}>")
 public void user_enters_valid_and(String string, String string2) {
-//	driver.findElement(By.id("user-name")).sendKeys("standard_user");
-//	driver.findElement(By.id("password")).sendKeys("secret_sauce");
+
+	login =  new login(driver);
+	login.enterUsername(string);
+	login.enterPassword(string2);
+//
 }
+
+//@When("User enters valid <{string}> and <{string}>")
+//public void user_enters_valid_and(String string1, String string2) {
+////	driver.findElement(By.id("user-name")).sendKeys("standard_user");
+////	driver.findElement(By.id("password")).sendKeys("secret_sauce");
+//
+//	System.out.println("priti...................");
+//	//System.out.println(string1);
+//	//System.out.println(string2);
+//	
+//	login =  new login(driver);
+//	login.enterUsername(string1);
+//	login.enterPassword(string2);
+//}
 
 
 @And("Click on Login page")
 public void click_on_login_page() {
 
+	login.clickLogin();
 
 //	driver.findElement(By.id("login-button")).click();
 }
@@ -72,5 +93,5 @@ public void close_page() {
 }
 
 
-*/
+
 }
